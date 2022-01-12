@@ -57,4 +57,12 @@ public class Address {
     public void setPostal_code(int postal_code) {
         this.postal_code = postal_code;
     }
+
+    public Address(Long id_address, String country, String regional, String city, int postal_code) {
+        this.id_address = id_address;
+        this.country = country;
+        this.regional = regional;
+        this.city = city;
+        this.postal_code = postal_code;
+    }
 }
