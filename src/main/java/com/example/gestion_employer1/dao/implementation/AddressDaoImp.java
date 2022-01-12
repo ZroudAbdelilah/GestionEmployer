@@ -3,14 +3,14 @@ package com.example.gestion_employer1.dao.implementation;
 import com.example.gestion_employer1.dao.interfaces.AddressDao;
 import com.example.gestion_employer1.entity.AddressEntity;
 import com.example.gestion_employer1.hibernate.HSessionFactory;
-import com.example.gestion_employer1.models.Address;
+
 import org.hibernate.Session;
 
 import java.util.ArrayList;
 
 public class AddressDaoImp implements AddressDao {
     @Override
-    public Address add(Address address) {
+    public AddressEntity add(AddressEntity address) {
         Session session = HSessionFactory.getInstance().getSession().openSession();
         session.beginTransaction();
 
@@ -29,12 +29,12 @@ public class AddressDaoImp implements AddressDao {
 
 
     @Override
-    public Address find(Long id) {
+    public AddressEntity find(Long id) {
         Session session = HSessionFactory.getInstance().getSession().openSession();
         session.beginTransaction();
         AddressEntity addressEntity = (AddressEntity) session.get(AddressEntity.class,id);
         session.close();
-        Address address = new Address();
+        AddressEntity address = new AddressEntity();
         address.setId_address(address.getId_address());
         address.setCountry(address.getCountry());
         address.setRegional(address.getRegional());
@@ -45,13 +45,13 @@ public class AddressDaoImp implements AddressDao {
 
     }
     @Override
-    public ArrayList<Address> getAll() {
+    public ArrayList<AddressEntity> getAll() {
         Session session = HSessionFactory.getInstance().getSession().openSession();
         session.beginTransaction();
         ArrayList<AddressEntity> addressEntity = (ArrayList<AddressEntity>) session.createCriteria(AddressEntity.class).list();
-        ArrayList<Address> addresss = new ArrayList<Address>();
+        ArrayList<AddressEntity> addresss = new ArrayList<AddressEntity>();
         for (int i=0;i < addressEntity.size();i++){
-            Address address = new Address();
+            AddressEntity address = new AddressEntity();
             address.setId_address(addressEntity.get(i).getId_address());
             address.setCountry(addressEntity.get(i).getCountry());
             address.setRegional(addressEntity.get(i).getRegional());
@@ -66,7 +66,7 @@ public class AddressDaoImp implements AddressDao {
 
 
     @Override
-    public Address update(Address address) {
+    public AddressEntity update(AddressEntity address) {
         Session session = HSessionFactory.getInstance().getSession().openSession();
         session.beginTransaction();
 

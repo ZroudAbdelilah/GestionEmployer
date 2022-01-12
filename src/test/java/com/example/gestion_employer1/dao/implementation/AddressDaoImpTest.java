@@ -1,6 +1,8 @@
 package com.example.gestion_employer1.dao.implementation;
 
-import com.example.gestion_employer1.models.Address;
+
+import com.example.gestion_employer1.dao.interfaces.AddressDao;
+import com.example.gestion_employer1.entity.AddressEntity;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -11,34 +13,34 @@ class AddressDaoImpTest {
 
     @Test
     void add() {
-        AddressDaoImp addressDaoImp = new AddressDaoImp();
-        Address address = new Address("morocco","marrakech-asfi","youssoufia test",46300);
-        assertInstanceOf(Address.class,addressDaoImp.add(address));
+        AddressDao addressDao = new AddressDaoImp();
+        AddressEntity address = new AddressEntity("morocco nv version ","marrakech-asfi","youssoufia",46300);
+        assertInstanceOf(AddressEntity.class,addressDao.add(address));
     }
 
     @Test
     void find() {
-        AddressDaoImp addressDaoImp = new AddressDaoImp();
-        assertInstanceOf(Address.class,addressDaoImp.find(new Long (1) ));
+        AddressDao addressDao = new AddressDaoImp();
+        assertInstanceOf(AddressEntity.class,addressDao.find(new Long (1) ));
     }
 
     @Test
     void getAll() {
-        AddressDaoImp addressDaoImp = new AddressDaoImp();
-        ArrayList<Address> addresses = new ArrayList<Address>();
-        assertInstanceOf(addresses.getClass(),addressDaoImp.getAll());
+        AddressDao addressDao = new AddressDaoImp();
+        ArrayList<AddressEntity> addresses = new ArrayList<AddressEntity>();
+        assertInstanceOf(addresses.getClass(),addressDao.getAll());
     }
 
     @Test
     void update() {
-        AddressDaoImp addressDaoImp = new AddressDaoImp();
-        Address address = new Address(new Long (1),"morocco","marrakech-asfi","youssoufia test update",46300);
-        assertInstanceOf(Address.class,addressDaoImp.update(address));
+        AddressDao addressDao = new AddressDaoImp();
+        AddressEntity address = new AddressEntity(new Long (1),"morocco test","marrakech-asfi","youssoufia enleve models",46300);
+        assertInstanceOf(AddressEntity.class,addressDao.update(address));
     }
 
     @Test
     void delete() {
-        AddressDaoImp addressDaoImp = new AddressDaoImp();
-        assertTrue(addressDaoImp.delete(new Long(3)));
+        AddressDao addressDao = new AddressDaoImp();
+        assertTrue(addressDao.delete(new Long(3)));
     }
 }

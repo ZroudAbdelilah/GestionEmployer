@@ -22,6 +22,21 @@ public class AddressEntity {
     @Column(name = "postal_code")
     private int postal_code;
 
+    public AddressEntity(String country, String regional, String city, int postal_code) {
+        this.country = country;
+        this.regional = regional;
+        this.city = city;
+        this.postal_code = postal_code;
+    }
+
+    public AddressEntity(Long id_address, String country, String regional, String city, int postal_code) {
+        this.id_address = id_address;
+        this.country = country;
+        this.regional = regional;
+        this.city = city;
+        this.postal_code = postal_code;
+    }
+
     public AddressEntity(String country, String regional, String city, int postal_code, Set<UserEntity> users) {
         this.country = country;
         this.regional = regional;
