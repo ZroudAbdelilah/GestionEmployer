@@ -15,7 +15,6 @@ public class RoleEntity {
     private String name;
 
 
-
     public Long getId_role() {
         return id_role;
     }
@@ -24,11 +23,23 @@ public class RoleEntity {
         this.id_role = id_role;
     }
 
-    public String getRole() {
+    public String getName() {
         return name;
     }
 
-    public void setRole(String role) {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public RoleEntity() {
+    }
+
+    public RoleEntity(Long id_role, String name) {
+        this.id_role = id_role;
+        this.name = name;
+    }
+
+    public RoleEntity(String name) {
         this.name = name;
     }
 }
