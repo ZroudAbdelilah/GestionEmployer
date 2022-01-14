@@ -72,5 +72,41 @@ public class UserEntity {
         this.password = password;
     }
 
+    public RoleEntity getRole() {
+        return role;
+    }
 
+    public void setRole(RoleEntity role) {
+        this.role = role;
+    }
+
+    public AddressEntity getAddress() {
+        return address;
+    }
+
+    public void setAddress(AddressEntity address) {
+        this.address = address;
+    }
+
+    public UserEntity(String first_name, String last_name, String email, String password, RoleEntity role, AddressEntity address) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.address = address;
+    }
+
+    public UserEntity() {
+    }
+
+    public UserEntity(Long id_user, String first_name, String last_name, String email, String password, RoleEntity role, AddressEntity address) {
+        this.id_user = id_user;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.address = address;
+    }
 }
