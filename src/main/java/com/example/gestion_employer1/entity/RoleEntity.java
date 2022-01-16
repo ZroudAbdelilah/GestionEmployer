@@ -14,6 +14,8 @@ public class RoleEntity {
     @Column(name="name")
     private String name;
 
+    @OneToMany(mappedBy = "role",cascade = CascadeType.ALL)
+    private Set<UserEntity> users;
 
     public Long getId_role() {
         return id_role;
