@@ -31,4 +31,11 @@ public class AdminEntity extends UserEntity {
     public void setId_user(Long id_user) {
         this.id_user = id_user;
     }
+
+    @Override
+    public String toString() {
+        return "AdminEntity{" +
+                "id_user=" + id_user +
+                '}';
+    }
 }

@@ -90,4 +90,16 @@ public class AddressEntity {
     public void setPostal_code(int postal_code) {
         this.postal_code = postal_code;
     }
+
+    @Override
+    public String toString() {
+        return "AddressEntity{" +
+                "id_address=" + id_address +
+                ", country='" + country + '\'' +
+                ", regional='" + regional + '\'' +
+                ", city='" + city + '\'' +
+                ", postal_code=" + postal_code +
+                ", users=" + users +
+                '}';
+    }
 }

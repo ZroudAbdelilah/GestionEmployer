@@ -64,5 +64,12 @@ public class EmployerEntity extends UserEntity {
     }
 
 
-
+    @Override
+    public String toString() {
+        return "EmployerEntity{" +
+                "id_user=" + id_user +
+                ", date_in=" + date_in +
+                ", date_out=" + date_out +
+                '}';
+    }
 }

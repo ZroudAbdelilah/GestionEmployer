@@ -44,4 +44,13 @@ public class RoleEntity {
     public RoleEntity(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "RoleEntity{" +
+                "id_role=" + id_role +
+                ", name='" + name + '\'' +
+                ", users=" + users +
+                '}';
+    }
 }
