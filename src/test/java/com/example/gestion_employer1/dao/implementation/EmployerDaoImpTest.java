@@ -16,12 +16,12 @@ class EmployerDaoImpTest {
     @Test
     void add() {
         EmployerDao employerDao = new EmployerDaoImp();
-        RoleEntity role = new RoleEntity(new Long(3),"Employer");
-        AddressEntity address = new AddressEntity(new Long(1),"morocco test","marrakech-asfi","youssoufia enleve models",46300);
-        EmployerEntity employer = new EmployerEntity("abdelilah","Zroud add","abdelilahzroud@gmail.com","1234",role,address,new Date(2020,10,17),new Date(2020,12,17));
-        //EmployerEntity employer1 =new EmployerEntity("test1","testttt","test@gmail.com","12344",role,address,new Date(1019,10,12),new Date(1019,10,12));
+        RoleEntity role = new RoleEntity(new Long(2),"employer");
+        AddressEntity address = new AddressEntity(new Long(1),"morocco nv version","marrakech-asfi","youssoufia",46300);
+        EmployerEntity employer = new EmployerEntity("abdelilah2","Zroud 2","abdelilahzroud@gmail.com","1234",role,address,new Date(1020,10,17),new Date(1020,12,17));
+
         assertInstanceOf(EmployerEntity.class,employerDao.add(employer));
-        //assertInstanceOf(EmployerEntity.class,employerDao.add(employer1));
+
     }
 
     @Test
@@ -40,15 +40,15 @@ class EmployerDaoImpTest {
     @Test
     void update() {
         EmployerDao employerDao = new EmployerDaoImp();
-        RoleEntity role = new RoleEntity(new Long(3),"Employer");
+        RoleEntity role = new RoleEntity(new Long(2),"employer");
         AddressEntity address = new AddressEntity(new Long(1),"morocco test","marrakech-asfi","youssoufia enleve models",46300);
-        EmployerEntity employer = new EmployerEntity("abdelilah up","Zroud","abdelilahzroud@gmail.com","1234",role,address,new Long(43),new Date(2020,10,17),new Date(2020,12,17));
+        EmployerEntity employer = new EmployerEntity("abdelilah up","Zroud","abdelilahzroud@gmail.com","1234",role,address,new Long(1),new Date(2020,10,17),new Date(2020,12,17));
         assertInstanceOf(EmployerEntity.class,employerDao.update(employer));
     }
 
     @Test
     void delete() {
         EmployerDao employerDao = new EmployerDaoImp();
-        assertTrue(employerDao.delete(new Long(40)));
+        assertTrue(employerDao.delete(new Long(2)));
     }
 }
