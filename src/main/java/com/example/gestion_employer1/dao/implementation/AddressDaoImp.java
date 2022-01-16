@@ -32,16 +32,10 @@ public class AddressDaoImp implements AddressDao {
     public AddressEntity find(Long id) {
         Session session = HSessionFactory.getInstance().getSession().openSession();
         session.beginTransaction();
-        AddressEntity addressEntity = (AddressEntity) session.get(AddressEntity.class,id);
+        AddressEntity addressEntity =  session.get(AddressEntity.class,id);
         session.close();
-        AddressEntity address = new AddressEntity();
-        address.setId_address(address.getId_address());
-        address.setCountry(address.getCountry());
-        address.setRegional(address.getRegional());
-        address.setCity(address.getCity());
-        address.setPostal_code(address.getPostal_code());
 
-        return address;
+        return addressEntity;
 
     }
     @Override
@@ -49,19 +43,10 @@ public class AddressDaoImp implements AddressDao {
         Session session = HSessionFactory.getInstance().getSession().openSession();
         session.beginTransaction();
         ArrayList<AddressEntity> addressEntity = (ArrayList<AddressEntity>) session.createCriteria(AddressEntity.class).list();
-        ArrayList<AddressEntity> addresss = new ArrayList<AddressEntity>();
-        for (int i=0;i < addressEntity.size();i++){
-            AddressEntity address = new AddressEntity();
-            address.setId_address(addressEntity.get(i).getId_address());
-            address.setCountry(addressEntity.get(i).getCountry());
-            address.setRegional(addressEntity.get(i).getRegional());
-            address.setCity(addressEntity.get(i).getCity());
-            address.setPostal_code(addressEntity.get(i).getPostal_code());
 
-            addresss.add(address);
-        }
+
         session.close();
-        return addresss;
+        return addressEntity;
     }
 
 

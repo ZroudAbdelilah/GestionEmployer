@@ -56,4 +56,9 @@ class AdminDaoImpTest {
         AdminDao adminDao = new AdminDaoImp();
         assertTrue(adminDao.delete(new Long(4)));
     }
+    @Test
+    void findbyemail(){
+        AdminDao adminDao = new AdminDaoImp();
+        assertInstanceOf(AdminEntity.class,adminDao.findbyemail("admin@gmail.com"));
+    }
 }

@@ -30,13 +30,10 @@ public class RoleDaoImp implements RoleDao {
     public RoleEntity find(Long id) {
         Session session = HSessionFactory.getInstance().getSession().openSession();
         session.beginTransaction();
-        RoleEntity roleEntity = (RoleEntity) session.get(RoleEntity.class,id);
+        RoleEntity roleEntity =  session.get(RoleEntity.class,id);
         session.close();
-        RoleEntity role = new RoleEntity();
-        role.setId_role(role.getId_role());
-        role.setName(role.getName());
 
-        return role;
+        return roleEntity;
 
     }
     @Override
@@ -44,17 +41,9 @@ public class RoleDaoImp implements RoleDao {
         Session session = HSessionFactory.getInstance().getSession().openSession();
         session.beginTransaction();
         ArrayList<RoleEntity> roleEntity = (ArrayList<RoleEntity>) session.createCriteria(RoleEntity.class).list();
-        ArrayList<RoleEntity> roles = new ArrayList<RoleEntity>();
-        for (int i=0;i < roleEntity.size();i++){
-            RoleEntity role = new RoleEntity();
-            role.setId_role(roleEntity.get(i).getId_role());
-            role.setName(roleEntity.get(i).getName());
 
-
-            roles.add(role);
-        }
         session.close();
-        return roles;
+        return roleEntity;
     }
 
 
