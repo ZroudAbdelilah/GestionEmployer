@@ -21,10 +21,10 @@ public class UserEntity {
     @Column(name = "password")
     private String password;
 
-    @OneToOne(optional = false)
+
+    @ManyToOne
     @JoinColumn(name = "id_role",referencedColumnName = "id_role")
     private RoleEntity role;
-
 
 
     @ManyToOne
