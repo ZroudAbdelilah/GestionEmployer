@@ -32,21 +32,21 @@ public class AdminDaoImp implements AdminDao {
     public AdminEntity find(Long id) {
         Session session = HSessionFactory.getInstance().getSession().openSession();
         session.beginTransaction();
-        AdminEntity adminEntity = (AdminEntity) session.get(AdminEntity.class,id);
+        AdminEntity adminEntity = session.get(AdminEntity.class,id);
         session.close();
 
-        AdminEntity admin = new AdminEntity();
-        adminEntity.setId_user(admin.getId_user());
-        adminEntity.setFirst_name(admin.getFirst_name());
-        adminEntity.setLast_name(admin.getLast_name());
-        adminEntity.setEmail(admin.getEmail());
-        adminEntity.setPassword(admin.getPassword());
-        adminEntity.setAddress(admin.getAddress());
-        adminEntity.setRole(admin.getRole());
+
+        return adminEntity;
+    }
+    @Override
+    public AdminEntity findbyemail(String email){
+        Session session = HSessionFactory.getInstance().getSession().openSession();
+        session.beginTransaction();
+        AdminEntity adminEntity = session.get(AdminEntity.class,email);
+        session.close();
 
 
-        return admin;
-
+        return adminEntity;
     }
     @Override
     public ArrayList<AdminEntity> getAll() {
@@ -54,23 +54,9 @@ public class AdminDaoImp implements AdminDao {
         session.beginTransaction();
         ArrayList<AdminEntity> adminEntity = (ArrayList<AdminEntity>
                 ) session.createCriteria(AdminEntity.class).list();
-        ArrayList<AdminEntity> admins = new ArrayList<AdminEntity>();
-        for (int i=0;i < adminEntity.size();i++){
-            AdminEntity admin = new AdminEntity();
 
-            admin.setId_user(adminEntity.get(i).getId_user());
-            admin.setEmail(adminEntity.get(i).getEmail());
-            admin.setFirst_name(adminEntity.get(i).getFirst_name());
-            admin.setLast_name(adminEntity.get(i).getLast_name());
-            admin.setPassword(adminEntity.get(i).getPassword());
-            admin.setAddress(adminEntity.get(i).getAddress());
-            admin.setRole(adminEntity.get(i).getRole());
-
-
-            admins.add(admin);
-        }
         session.close();
-        return admins;
+        return adminEntity;
     }
     @Override
     public AdminEntity update(AdminEntity admin) {
