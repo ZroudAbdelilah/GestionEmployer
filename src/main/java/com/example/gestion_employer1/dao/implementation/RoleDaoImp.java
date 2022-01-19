@@ -1,7 +1,6 @@
 package com.example.gestion_employer1.dao.implementation;
 
 import com.example.gestion_employer1.dao.interfaces.RoleDao;
-import com.example.gestion_employer1.entity.AddressEntity;
 import com.example.gestion_employer1.entity.RoleEntity;
 import com.example.gestion_employer1.hibernate.HSessionFactory;
 import org.hibernate.Session;

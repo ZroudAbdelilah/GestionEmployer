@@ -8,7 +8,7 @@
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"></property>
-        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.show_sql">false</property>
 
         <!-- property name="connection.driver_class">com.mysql.jdbc.Driver</property -->
         <!--        <property name="connection.url">jdbc:mysql://localhost/hibernate_examples</property>-->
@@ -23,7 +23,6 @@
         <mapping class="com.example.gestion_employer1.entity.UserEntity"/>
         <mapping class="com.example.gestion_employer1.entity.EmployerEntity"/>
         <mapping class="com.example.gestion_employer1.entity.AdminEntity"/>
-        <mapping class="com.example.gestion_employer1.entity.AddressEntity"/>
         <mapping class="com.example.gestion_employer1.entity.RoleEntity"/>
     </session-factory>
 </hibernate-configuration>

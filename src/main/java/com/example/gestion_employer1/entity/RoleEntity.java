@@ -41,6 +41,7 @@ public class RoleEntity {
         this.name = name;
     }
 
+
     public RoleEntity(String name) {
         this.name = name;
     }

@@ -24,12 +24,10 @@ public class UserEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_role",referencedColumnName = "id_role")
+
     private RoleEntity role;
 
 
-    @ManyToOne
-    @JoinColumn(name = "id_address",referencedColumnName = "id_address")
-    private AddressEntity address ;
 
 
     public Long getId_user() {
@@ -80,35 +78,21 @@ public class UserEntity {
         this.role = role;
     }
 
-    public AddressEntity getAddress() {
-        return address;
-    }
 
-    public void setAddress(AddressEntity address) {
-        this.address = address;
-    }
 
-    public UserEntity(String first_name, String last_name, String email, String password, RoleEntity role, AddressEntity address) {
+    public UserEntity(String first_name, String last_name, String email, String password, RoleEntity role) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.password = password;
         this.role = role;
-        this.address = address;
+
     }
 
     public UserEntity() {
     }
 
-    public UserEntity(Long id_user, String first_name, String last_name, String email, String password, RoleEntity role, AddressEntity address) {
-        this.id_user = id_user;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-        this.address = address;
-    }
+
 
     @Override
     public String toString() {
@@ -119,7 +103,7 @@ public class UserEntity {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role=" + role +
-                ", address=" + address +
+
                 '}';
     }
 }

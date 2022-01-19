@@ -19,7 +19,6 @@ public class AdminDaoImp implements AdminDao {
         adminEntity.setLast_name(admin.getLast_name());
         adminEntity.setEmail(admin.getEmail());
         adminEntity.setPassword(admin.getPassword());
-        adminEntity.setAddress(admin.getAddress());
         adminEntity.setRole(admin.getRole());
 
         session.save(adminEntity);
@@ -72,7 +71,6 @@ public class AdminDaoImp implements AdminDao {
         adminEntity.setFirst_name(admin.getFirst_name());
         adminEntity.setLast_name(admin.getLast_name());
         adminEntity.setPassword(admin.getPassword());
-        adminEntity.setAddress(admin.getAddress());
         adminEntity.setRole(admin.getRole());
 
 

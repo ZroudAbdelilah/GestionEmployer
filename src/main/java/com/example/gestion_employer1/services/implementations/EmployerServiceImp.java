@@ -6,6 +6,7 @@ import com.example.gestion_employer1.entity.EmployerEntity;
 import com.example.gestion_employer1.services.interfaces.EmployerService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EmployerServiceImp implements EmployerService {
     private EmployerDao employerDao = new EmployerDaoImp();
@@ -18,7 +19,7 @@ public class EmployerServiceImp implements EmployerService {
         return employerDao.find(id);
     }
     @Override
-    public ArrayList<EmployerEntity> getAll(){
+    public List<EmployerEntity> getAll(){
         return employerDao.getAll();
     }
     @Override

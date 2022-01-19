@@ -1,10 +1,7 @@
 package com.example.gestion_employer1.dao.implementation;
 
 import com.example.gestion_employer1.dao.interfaces.AdminDao;
-import com.example.gestion_employer1.dao.interfaces.EmployerDao;
-import com.example.gestion_employer1.entity.AddressEntity;
 import com.example.gestion_employer1.entity.AdminEntity;
-import com.example.gestion_employer1.entity.EmployerEntity;
 import com.example.gestion_employer1.entity.RoleEntity;
 import org.junit.jupiter.api.Test;
 
@@ -19,8 +16,8 @@ class AdminDaoImpTest {
 
         AdminDao adminDao = new AdminDaoImp();
         RoleEntity role = new RoleEntity(new Long(1),"admin");
-        AddressEntity address = new AddressEntity(new Long(1),"morocco nv version","marrakech-asfi","youssoufia",46300);
-        AdminEntity admin = new AdminEntity("admin","lastadmin","admin@gmail.com","1234",role,address);
+
+        AdminEntity admin = new AdminEntity("admin","lastadmin","admin@gmail.com","1234",role);
         assertInstanceOf(AdminEntity.class,adminDao.add(admin));
 
     }
@@ -44,9 +41,9 @@ class AdminDaoImpTest {
     void update() {
 
         AdminDao adminDao = new AdminDaoImp();
-        RoleEntity role = new RoleEntity(new Long(1),"admin");
-        AddressEntity address = new AddressEntity(new Long(1),"morocco nv version","marrakech-asfi","youssoufia",46300);
-        AdminEntity admin = new AdminEntity("admin","update admin","admin@gmail.com","1234",role,address,new Long(3));
+        RoleEntity role = new RoleEntity(new Long(2),"admin");
+
+        AdminEntity admin = new AdminEntity("admin","update admin","admin@gmail.com","1234",role,new Long(3));
         assertInstanceOf(AdminEntity.class,adminDao.update(admin));
     }
 
@@ -56,9 +53,5 @@ class AdminDaoImpTest {
         AdminDao adminDao = new AdminDaoImp();
         assertTrue(adminDao.delete(new Long(4)));
     }
-    @Test
-    void findbyemail(){
-        AdminDao adminDao = new AdminDaoImp();
-        assertInstanceOf(AdminEntity.class,adminDao.findbyemail("admin@gmail.com"));
-    }
+
 }

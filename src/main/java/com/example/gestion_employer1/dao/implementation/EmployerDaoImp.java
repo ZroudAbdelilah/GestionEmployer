@@ -1,13 +1,12 @@
 package com.example.gestion_employer1.dao.implementation;
 
 import com.example.gestion_employer1.dao.interfaces.EmployerDao;
-import com.example.gestion_employer1.entity.AddressEntity;
 import com.example.gestion_employer1.entity.EmployerEntity;
-import com.example.gestion_employer1.entity.RoleEntity;
 import com.example.gestion_employer1.hibernate.HSessionFactory;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class EmployerDaoImp implements EmployerDao {
     @Override
@@ -20,10 +19,8 @@ public class EmployerDaoImp implements EmployerDao {
         employerEntity.setLast_name(employer.getLast_name());
         employerEntity.setEmail(employer.getEmail());
         employerEntity.setPassword(employer.getPassword());
-        employerEntity.setAddress(employer.getAddress());
         employerEntity.setRole(employer.getRole());
-        employerEntity.setDate_in(employer.getDate_in());
-        employerEntity.setDate_out(employer.getDate_out());
+
 
         session.save(employerEntity);
         session.getTransaction().commit();
@@ -38,21 +35,21 @@ public class EmployerDaoImp implements EmployerDao {
         EmployerEntity employerEntity =  session.get(EmployerEntity.class,id);
         session.close();
 
-
-
         return employerEntity;
 
     }
     @Override
-    public ArrayList<EmployerEntity> getAll() {
+    public List<EmployerEntity> getAll() {
+
         Session session = HSessionFactory.getInstance().getSession().openSession();
-        session.beginTransaction();
-        ArrayList<EmployerEntity> employerEntity = (ArrayList<EmployerEntity>
-                ) session.createCriteria(EmployerEntity.class).list();
+        Transaction transaction =session.beginTransaction();
+
+        List<EmployerEntity> employerEntity =  session.createQuery("from EmployerEntity ").list();
+        transaction.commit();
 
 
 
-        session.close();
+
         return employerEntity;
     }
     @Override
@@ -69,10 +66,9 @@ public class EmployerDaoImp implements EmployerDao {
         employerEntity.setFirst_name(employer.getFirst_name());
         employerEntity.setLast_name(employer.getLast_name());
         employerEntity.setPassword(employer.getPassword());
-        employerEntity.setAddress(employer.getAddress());
+
         employerEntity.setRole(employer.getRole());
-        employerEntity.setDate_in(employer.getDate_in());
-        employerEntity.setDate_out(employer.getDate_out());
+
 
         session.merge(employerEntity);
         session.getTransaction().commit();

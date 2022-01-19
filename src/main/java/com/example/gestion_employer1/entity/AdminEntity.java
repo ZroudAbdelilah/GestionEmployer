@@ -10,15 +10,17 @@ public class AdminEntity extends UserEntity {
     @Column(name = "id_user")
     private Long id_user;
 
-    public AdminEntity(String first_name, String last_name, String email, String password, RoleEntity role, AddressEntity address) {
-        super(first_name, last_name, email, password, role, address);
-    }
+
 
     public AdminEntity() {
     }
 
-    public AdminEntity(String first_name, String last_name, String email, String password, RoleEntity role, AddressEntity address, Long id_user) {
-        super(first_name, last_name, email, password, role, address);
+    public AdminEntity(String first_name, String last_name, String email, String password, RoleEntity role) {
+        super(first_name, last_name, email, password, role);
+    }
+
+    public AdminEntity(String first_name, String last_name, String email, String password, RoleEntity role, Long id_user) {
+        super(first_name, last_name, email, password, role);
         this.id_user = id_user;
     }
 

@@ -13,7 +13,7 @@ class RoleDaoImpTest {
     @Test
     void add() {
         RoleDao roleDao= new RoleDaoImp() ;
-        RoleEntity roleEntity = new RoleEntity("employer");
+        RoleEntity roleEntity = new RoleEntity("admin");
         assertInstanceOf(RoleEntity.class,roleDao.add(roleEntity));
     }
 
