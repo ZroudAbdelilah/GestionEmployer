@@ -10,7 +10,9 @@ import com.example.gestion_employer1.entity.RoleEntity;
 import com.example.gestion_employer1.repository.AdminRepoImp;
 import com.example.gestion_employer1.repository.AdminRepoInt;
 
+import com.example.gestion_employer1.services.implementations.EmployerServiceImp;
 import com.example.gestion_employer1.services.implementations.RoleServiceImp;
+import com.example.gestion_employer1.services.interfaces.EmployerService;
 import com.example.gestion_employer1.services.interfaces.RoleService;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -91,6 +93,9 @@ public class ServletEmployer extends HttpServlet {
 
     }
 
+    private void setAsGone(HttpServletRequest request, HttpServletResponse response) {
+    }
+
     private void authenticate(HttpServletRequest request, HttpServletResponse response)throws Exception {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -132,12 +137,11 @@ public class ServletEmployer extends HttpServlet {
         String prenom = request.getParameter("prenom");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String role = request.getParameter("role");
-       /* EmployerEntity employer = new EmployerEntity(id,nom,prenom,email,password);
-        Role rolee = new Role(role);
-        user.setRole(rolee);
-
-        employerDao.update(employer);*/
+        long id_role = Long.parseLong(request.getParameter("role"));
+        RoleEntity role = new RoleServiceImp().find(id_role);
+        EmployerEntity employerEntity = new EmployerEntity(nom,prenom,email,password,role,id);
+        EmployerService employerService = new EmployerServiceImp();
+        employerService.update(employerEntity);
         listUser(request, response);
     }
 

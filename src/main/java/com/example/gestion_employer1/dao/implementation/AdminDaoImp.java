@@ -37,16 +37,7 @@ public class AdminDaoImp implements AdminDao {
 
         return adminEntity;
     }
-    @Override
-    public AdminEntity findbyemail(String email){
-        Session session = HSessionFactory.getInstance().getSession().openSession();
-        session.beginTransaction();
-        AdminEntity adminEntity = session.get(AdminEntity.class,email);
-        session.close();
 
-
-        return adminEntity;
-    }
     @Override
     public ArrayList<AdminEntity> getAll() {
         Session session = HSessionFactory.getInstance().getSession().openSession();

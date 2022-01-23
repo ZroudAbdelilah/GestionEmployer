@@ -11,5 +11,4 @@ public interface AdminDao {
     ArrayList<AdminEntity> getAll();
     AdminEntity update(AdminEntity admin);
     boolean delete(Long id);
-    AdminEntity findbyemail(String email);
 }

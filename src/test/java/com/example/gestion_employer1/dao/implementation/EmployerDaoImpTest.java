@@ -47,6 +47,6 @@ class EmployerDaoImpTest {
     @Test
     void delete() {
         EmployerDao employerDao = new EmployerDaoImp();
-        assertTrue(employerDao.delete(new Long(2)));
+        assertTrue(employerDao.delete(new Long(8)));
     }
 }
