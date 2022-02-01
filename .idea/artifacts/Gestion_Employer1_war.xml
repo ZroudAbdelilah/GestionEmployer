@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="Gestion_Employer1-1.0-SNAPSHOT.war">
+    <root id="archive" name="buildemployer.war">
       <element id="artifact" artifact-name="Gestion_Employer1:war exploded" />
     </root>
   </artifact>

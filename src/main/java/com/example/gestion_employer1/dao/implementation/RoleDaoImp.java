@@ -16,7 +16,6 @@ public class RoleDaoImp implements RoleDao {
         RoleEntity roleEntity = new RoleEntity();
         roleEntity.setName(role.getName());
 
-
         session.save(roleEntity);
         session.getTransaction().commit();
         session.close();
